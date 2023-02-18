@@ -1,8 +1,10 @@
 #include <stdio.h>
- /**
-  *main - Print 3 combination of numbers
-  *Return: Always 0 (success)
-  */
+
+/**
+ * main - This is the entry of the program
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
 	int c;
