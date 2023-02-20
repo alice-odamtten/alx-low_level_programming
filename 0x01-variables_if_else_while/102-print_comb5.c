@@ -1,42 +1,30 @@
 #include <stdio.h>
 #include <unistd.h>
+
 /**
  * main - Entry point
  * Return: Always 0
  */
 int main(void)
 {
-	int c;
 	int i;
-	int k;
 	int j;
 
-	for (c = 48; c <= 57; c++)
+	for (i = 0; i <= 99; i++)
 	{
-		for (i = 48; i <= 57; c++)
+		for (j = i; j <= 99; j++)
 		{
-			for (k = 48; k <= 57; k++)
+			if (j != i)
 			{
-				for (j = 48; j <= 57; j++)
+				putchar(i / 10 + 48);
+				putchar(i % 10 + 48);
+				putchar(' ');
+				putchar(j / 10 + 48);
+				putchar(j % 10 + 48);
+				if (i * 100 + j != 9899)
 				{
-					if (((k + j) > (c + i) && k >= c) || c < k)
-					{
-						putchar(c);
-						putchar(i);
-						putchar(' ');
-						putchar(k);
-						putchar(j);
-
-						if (c + i + k + j == 227 && c == 57)
-						{
-							break;
-						}
-						else
-						{
-							putchar(',');
-							putchar(' ');
-						}
-					}
+					putchar(',');
+					putchar(' ')
 				}
 			}
 		}
