@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include "lists.h"
 
-/*
+/**
  * print_listint - Prints number of node
  *
  * @h: The node
- * @s: A pointer to help loop through the node
  * Description: prints all node values
  *
  * listint_t: A node data type
