@@ -13,7 +13,7 @@ size_t listint_len(const listint_t *h)
 {
 const listint_t *m;
 
-size_t s = 0;
+unsigned int s = 0;
 
 m = h;
 while (m != NULL)
