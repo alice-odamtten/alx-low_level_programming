@@ -1,5 +1,6 @@
 #include "lists_h"
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * listint_len - Returns number of element
  * @h: Node pointer
