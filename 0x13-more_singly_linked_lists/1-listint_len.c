@@ -12,14 +12,12 @@
 
 size_t listint_len(const listint_t *h)
 {
+const listint_t *m;
+size_t s = 0;
 
-unsigned int s = 0;
-
-while (h != NULL)
+for(m = h; m != NULL; m = m->next)
 {
-	h = h->next;
 	s++;
 }
-
 return (s);
 }
