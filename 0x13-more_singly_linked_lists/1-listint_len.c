@@ -1,6 +1,7 @@
-#include "lists_h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "lists_h"
+
 /**
  * listint_len - Returns number of element
  * @h: Node pointer
@@ -10,7 +11,7 @@
 
 size_t listint_len(const listint_t *h)
 {
-size_t s = 0;
+int s = 0;
 
 while (h != NULL)
 {
