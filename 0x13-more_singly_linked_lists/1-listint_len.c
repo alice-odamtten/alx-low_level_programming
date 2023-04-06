@@ -14,8 +14,12 @@ size_t listint_len(const listint_t *h)
 {
 const listint_t *m;
 size_t s = 0;
+if (h == NULL)
+{
+	return (0);
+}
 
-for(m = h; m != NULL; m = m->next)
+for (m = h; m != NULL; m = m->next)
 {
 	s++;
 }
