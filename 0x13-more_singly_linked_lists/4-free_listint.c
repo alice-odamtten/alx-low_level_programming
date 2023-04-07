@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "lists_h"
+#include "lists.h"
 
 /**
  * free_listint - Frees all nodes
