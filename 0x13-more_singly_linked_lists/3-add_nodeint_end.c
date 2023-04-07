@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "lists_h"
+#include "lists.h"
 
 /**
  * add_nodeint_end - Adds new node at end of a list
