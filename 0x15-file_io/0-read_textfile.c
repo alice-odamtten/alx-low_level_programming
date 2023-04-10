@@ -2,14 +2,21 @@
 #include <string.h>
 #include <stdio.h>
 
+/**
+ * read_textfile - reads a content of a file
+ *
+ * @filename: File to be opened
+ * @letters: Number of letterss to read
+ * Return: Always the actual number of char printed
+ **/
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
+	int fp, r, t;
 	char *ch;
 	ssize_t count;
 
-	fp = fopen(filename, "r");
-	if (fp == NULL)
+	fp = open("filename", O_RDONLY);
+	if (fp == -1)
 	{
 		return (0);
 		exit(1);
@@ -20,15 +27,22 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	
-	while((fgets(ch, letters, fp)) != NULL)
+
+	r = read(ch, letters, fp);
+	if (r == -1)
 	{
-		printf("%S" , ch);
-		count+= strlen(ch)
+		return (0);
+		exit(1);
+	}
+	t = write(1, ch, r);
+	if (t == -1)
+	{
+		return (0);
+		exit(1);
 	}
 
-	fclose(fp);
+	close(fp);
 	free(ch);
 
-	return (count);
+	return (wr);
 }
