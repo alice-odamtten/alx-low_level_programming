@@ -15,11 +15,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *ch;
 	ssize_t count;
 
+	if (filename == NULL)
+	{
+		return (0);
+	}
+
 	fp = open("filename", O_RDONLY);
 	if (fp == -1)
 	{
 		return (0);
-		exit(1);
 	}
 
 	ch = malloc(letters * sizeof(char));
@@ -32,13 +36,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (r == -1)
 	{
 		return (0);
-		exit(1);
 	}
+	ch[letters] = '\0';
+
 	t = write(1, ch, r);
 	if (t == -1)
 	{
 		return (0);
-		exit(1);
 	}
 
 	close(fp);
