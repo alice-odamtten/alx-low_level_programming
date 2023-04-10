@@ -1,6 +1,4 @@
 #include "main.h"
-#include <string.h>
-#include <stdio.h>
 
 /**
  * read_textfile - reads a content of a file
@@ -13,40 +11,40 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fp, r, t;
 	char *ch;
-	ssize_t count;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
 
-	fp = open("filename", O_RDONLY);
+	fp = open(filename, O_RDONLY);
 	if (fp == -1)
 	{
 		return (0);
 	}
-
-	ch = malloc(letters * sizeof(char));
+	ch = malloc((letters + 1) * sizeof(char));
 	if (ch == NULL)
 	{
 		return (0);
 	}
 
-	r = read(ch, letters, fp);
+	r = read(fp, ch, letters);
 	if (r == -1)
 	{
+		close(fp);
+		free(ch);
 		return (0);
 	}
-	ch[letters] = '\0';
+	ch[r] = '\0';
 
 	t = write(1, ch, r);
 	if (t == -1)
 	{
+		close(fp);
+		free(ch);
 		return (0);
 	}
-
 	close(fp);
 	free(ch);
-
-	return (wr);
+	return (t);
 }
