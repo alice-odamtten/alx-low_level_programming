@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		error_msg("Usage: %s file_from file_to\n", argc[0], 97);
+		error_msg("Usage: %s file_from file_to\n", argv[0], 97);
 	}
 
 	ff = open(file_from, O_RDONLY);
@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
 		error_msg("Error: Can't write to %s\n", file_to, 99);
 	}
 
-	while ((d = read(file_from, b, buf_size)) > 0)
+	while ((d = read(ff, b, buf_size)) > 0)
 	{
-		t = write(file_to, b, d);
+		t = write(ft, b, d);
 		if (t != d)
 		{
 			error_msg("Error: Can't write to %s\n", file_to, 99);
@@ -65,6 +65,6 @@ int main(int argc, char *argv[])
  */
 void error_msg(char *error, char *file, int ec)
 {
-	dprintf(STDERR_FILENO, error, file);
+	dprintf(STDERR_FILENO, error, file, ec);
 	exit(ec);
 }
