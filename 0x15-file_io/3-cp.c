@@ -44,12 +44,12 @@ int main(int argc, char *argv[])
 		error_msg("Error: Can't read from file %s\n", file_from, 98);
 	}
 
-	if (close(file_from) == -1)
+	if (close(ff) == -1)
 	{
 		error_msg("Error: Can't close fd %d\n", ff, 100);
 	}
 
-	if (close(file_to) == -1)
+	if (close(ft) == -1)
 	{
 		error_msg("Error: Can't close fd %d\n", ft, 100);
 	}
