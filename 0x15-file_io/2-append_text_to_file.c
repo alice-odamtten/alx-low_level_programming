@@ -9,7 +9,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fp, count = 0;
+	int fp;
 	ssize_t n;
 
 	if (filename == NULL)
@@ -25,11 +25,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	while (text_content[count] != '\0')
-	{
-		count++;
-	}
-	n = write(fp, text_content, count);
+	n = write(fp, text_content, _strlen(text_content));
 	if (n < count)
 	{
 		close(fp);
@@ -37,4 +33,21 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 	close(fp);
 	return (1);
+}
+
+/**
+ * _strlen - Checks string length
+ * @s: Variable to check string length
+ * Return: Always number counted
+ */
+int _strlen(char *s)
+{
+	int count = 0;
+
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }
