@@ -24,7 +24,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	if (text_content != NULL)
 	{
-		bw = write(f, text_content, strlen(text_content));
+		bw = write(f, text_content, _strlen(text_content));
 		if (bw == -1)
 		{
 			close(f);
@@ -33,4 +33,22 @@ int create_file(const char *filename, char *text_content)
 	}
 	close(f);
 	return (1);
+}
+
+
+/**
+ * _strlen - Checks string length
+ * @s: Variable to check string length
+ * Return: Always number counted
+ */
+int _strlen(char *s)
+{
+	int count = 0;
+
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }
