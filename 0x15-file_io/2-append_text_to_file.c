@@ -30,7 +30,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		count++;
 	}
 	n = write(fp, text_content, count);
-	if (num_written < count)
+	if (n < count)
 	{
 		close(fp);
 		return (-1);
