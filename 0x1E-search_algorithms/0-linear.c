@@ -7,7 +7,7 @@
  * @value:  the value to search for
  *
  * Return: always an it
- **/
+ */
 
 int linear_search(int *array, size_t size, int value)
 {
